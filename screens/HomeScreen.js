@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useNavigation } from 'react-navigation-hooks';
 import { LinearGradient } from 'expo-linear-gradient';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import TransactionsScreenNavigationTab from '../components/TransactionsScreenNavigationTab';
 
@@ -11,8 +12,9 @@ function HomeScreen() {
   return (
     <View style={styles.container}>
       <LinearGradient
-        colors={['#6e00ff', '#020024']}
+        colors={['#6e00ff', '#4500a1']}
         style={{ flex: 1, borderRadius: 5 }}>
+
         <TransactionsScreenNavigationTab
           navigateTo={() => { navigate('Counter') }}
           alignRight='true'
