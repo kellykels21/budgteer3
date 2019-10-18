@@ -1,39 +1,13 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Text, FlatList } from 'react-native'
 
-const mockData = [
-  {
-    _id: 1,
-    vendor: 'Target',
-    description: 'School Stuff',
-    amount: '50',
-    paymentDate: Date.now(),
-    type: 'Shopping'
-  },
-  {
-    _id: 2,
-    vendor: 'Walmart',
-    description: 'Groceries',
-    amount: '105',
-    paymentDate: Date.now(),
-    type: 'Groceries'
-  },
-  {
-    _id: 3,
-    vendor: 'Uber',
-    description: 'Bar Hopping',
-    amount: '15',
-    paymentDate: Date.now(),
-    type: 'Entertainment'
-  },
-]
 function Lister(props) {
   return (
     <View>
       <FlatList
-        data={mockData}
+        data={props.data}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => this._onPressItem(item)}>
+          <TouchableOpacity onPress={() => props._onPressItem(item)}>
             <View style={styles.listItem}>
               <View style={styles.listLeft}>
                 <Text style={styles.leftItem}>{item.vendor}</Text>

@@ -5,6 +5,33 @@ import { useNavigation } from 'react-navigation-hooks';
 import HomeScreenNavigationTab from '../components/HomeScreenNavigationTab';
 import Lister from '../components/Lister';
 
+const mockData = [
+  {
+    _id: 1,
+    vendor: 'Dominion',
+    description: 'Electricity',
+    amount: '100',
+    paymentDate: Date.now(),
+    type: 'Bill'
+  },
+  {
+    _id: 2,
+    vendor: 'Capital One',
+    description: 'Mortgage Loan',
+    amount: '1050',
+    paymentDate: Date.now(),
+    type: 'Bill'
+  },
+  {
+    _id: 3,
+    vendor: 'TowneBanke',
+    description: 'Car Note',
+    amount: '560',
+    paymentDate: Date.now(),
+    type: 'Bill'
+  },
+]
+
 function BillsScreen() {
   const { navigate } = useNavigation()
   return (
@@ -17,7 +44,8 @@ function BillsScreen() {
       </View>
 
       <View style={{ flex: 2 }}>
-        <Lister></Lister>
+        <Lister
+          data={mockData}></Lister>
       </View>
     </View>
   )
