@@ -4,6 +4,7 @@ import { useNavigation } from 'react-navigation-hooks';
 
 import HomeScreenNavigationTab from '../components/HomeScreenNavigationTab';
 import Lister from '../components/Lister';
+import Counter from '../components/Counter';
 
 const mockData = [
   {
@@ -36,16 +37,15 @@ function BillsScreen() {
   const { navigate } = useNavigation()
   return (
     <View style={styles.container}>
-      <View style={{ flex: 2 }}>
+      <View style={[{ flex: 3 }, styles.topSection]}>
         <HomeScreenNavigationTab
           navigateTo={() => { navigate('Home') }}
           alignRight={true}
         />
+        <Counter number={"$250"} />
       </View>
-
       <View style={{ flex: 2 }}>
-        <Lister
-          data={mockData}></Lister>
+        <Lister data={mockData} />
       </View>
     </View>
   )
@@ -58,9 +58,15 @@ BillsScreen.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
     alignItems: 'stretch',
+    justifyContent: "center",
   },
+  topSection: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#F8F8F8"
+  }
 });
 
 export default BillsScreen

@@ -21,6 +21,14 @@ function Lister(props) {
                 </Text>
               </View>
             </View>
+            <View
+              style={{
+                borderBottomColor: 'black',
+                borderBottomWidth: 1,
+                width: "100%",
+                alignItems: "center",
+              }}
+            />
           </TouchableOpacity>
         )}
         keyExtractor={item => item._id}
@@ -33,11 +41,11 @@ const styles = StyleSheet.create({
   listItem: {
     flex: 1,
     flexDirection: "row",
-    marginTop: 2
+    marginTop: 2,
   },
   leftItem: {
     padding: 10,
-    backgroundColor: "yellow",
+    backgroundColor: "transparent",
     fontSize: 18
   },
   listLeft: {
@@ -45,7 +53,7 @@ const styles = StyleSheet.create({
   },
   rightItem: {
     padding: 10,
-    backgroundColor: "yellow",
+    backgroundColor: "transparent",
     fontSize: 18,
     textAlign: "right"
   },
