@@ -4,7 +4,6 @@ import { useNavigation } from 'react-navigation-hooks';
 
 import HomeScreenNavigationTab from '../components/HomeScreenNavigationTab';
 import Lister from '../components/Lister';
-import Slider from '../components/Slider';
 
 const mockData = [
   {
@@ -41,7 +40,6 @@ function CounterScreen() {
         <HomeScreenNavigationTab
           navigateTo={() => { navigate('Home') }}
         />
-        <Slider />
       </View>
 
       <View style={{ flex: 2 }}>
