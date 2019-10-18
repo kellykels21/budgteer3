@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native'
-import Ticker from "react-native-ticker";
+import { View, StyleSheet, Text } from 'react-native'
 
 function Counter(props) {
   return (
     <View>
-      <Ticker text={props.number} textStyle={styles.text} rotateTime={250} />
+      <Text style={styles.text}>{props.number}</Text>
     </View>
   )
 }
