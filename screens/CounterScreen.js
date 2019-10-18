@@ -1,39 +1,14 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { useNavigation } from 'react-navigation-hooks';
 
 import HomeScreenNavigationTab from '../components/HomeScreenNavigationTab';
 import Lister from '../components/Lister';
 
-const mockData = [
-  {
-    _id: 1,
-    vendor: 'Target',
-    description: 'School Stuff',
-    amount: '50',
-    paymentDate: Date.now(),
-    type: 'Shopping'
-  },
-  {
-    _id: 2,
-    vendor: 'Walmart',
-    description: 'Groceries',
-    amount: '105',
-    paymentDate: Date.now(),
-    type: 'Groceries'
-  },
-  {
-    _id: 3,
-    vendor: 'Uber',
-    description: 'Bar Hopping',
-    amount: '15',
-    paymentDate: Date.now(),
-    type: 'Entertainment'
-  },
-]
-
 function CounterScreen() {
   const { navigate } = useNavigation()
+  const mockData = require('../test/data/counter_screen_mock_data')
+
   return (
     <View style={styles.container}>
       <View style={{ flex: 3 }}>
@@ -44,7 +19,7 @@ function CounterScreen() {
 
       <View style={{ flex: 2 }}>
         <Lister
-          data={mockData}></Lister>
+          data={mockData.data}></Lister>
       </View>
     </View>
   )

@@ -6,35 +6,11 @@ import HomeScreenNavigationTab from '../components/HomeScreenNavigationTab';
 import Lister from '../components/Lister';
 import Counter from '../components/Counter';
 
-const mockData = [
-  {
-    _id: 1,
-    vendor: 'Dominion',
-    description: 'Electricity',
-    amount: '100',
-    paymentDate: Date.now(),
-    type: 'Bill'
-  },
-  {
-    _id: 2,
-    vendor: 'Capital One',
-    description: 'Mortgage Loan',
-    amount: '1050',
-    paymentDate: Date.now(),
-    type: 'Bill'
-  },
-  {
-    _id: 3,
-    vendor: 'TowneBanke',
-    description: 'Car Note',
-    amount: '560',
-    paymentDate: Date.now(),
-    type: 'Bill'
-  },
-]
 
 function BillsScreen() {
   const { navigate } = useNavigation()
+  const mockData = require('../test/data/bills_screen_mock_data')
+
   return (
     <View style={styles.container}>
       <View style={[{ flex: 3 }, styles.topSection]}>
@@ -45,7 +21,7 @@ function BillsScreen() {
         <Counter number={"$250"} />
       </View>
       <View style={{ flex: 2 }}>
-        <Lister data={mockData} />
+        <Lister data={mockData.data} />
       </View>
     </View>
   )

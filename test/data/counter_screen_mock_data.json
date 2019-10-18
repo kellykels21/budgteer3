@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "_id": 1,
+      "vendor": "Target",
+      "description": "School Stuff",
+      "amount": "50",
+      "paymentDate": "fake date",
+      "type": "Shopping"
+    },
+    {
+      "_id": 2,
+      "vendor": "Walmart",
+      "description": "Groceries",
+      "amount": "105",
+      "paymentDate": "fake date",
+      "type": "Groceries"
+    },
+    {
+      "_id": 3,
+      "vendor": "Uber",
+      "description": "Bar Hopping",
+      "amount": "15",
+      "paymentDate": "fake date",
+      "type": "Entertainment"
+    },
+    {
+      "_id": 4,
+      "vendor": "Uber",
+      "description": "Bar Hopping",
+      "amount": "15",
+      "paymentDate": "fake date",
+      "type": "Entertainment"
+    }
+  ]
+}

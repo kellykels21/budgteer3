@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "_id": 1,
+      "vendor": "Dominion",
+      "description": "Electricity",
+      "amount": "100",
+      "paymentDate": "fake date",
+      "type": "Bill"
+    },
+    {
+      "_id": 2,
+      "vendor": "Capital One",
+      "description": "Mortgage Loan",
+      "amount": "1050",
+      "paymentDate": "fake date",
+      "type": "Bill"
+    },
+    {
+      "_id": 3,
+      "vendor": "TowneBanke",
+      "description": "Car Note",
+      "amount": "560",
+      "paymentDate": "fake date",
+      "type": "Bill"
+    }
+  ]
+}
