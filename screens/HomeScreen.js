@@ -2,9 +2,9 @@ import React from 'react';
 import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useNavigation } from 'react-navigation-hooks';
 import { LinearGradient } from 'expo-linear-gradient';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import TransactionsScreenNavigationTab from '../components/TransactionsScreenNavigationTab';
+import BillsScreenNavigationTab from '../components/BillsScreenNavigationTab';
 
 function HomeScreen() {
   const { navigate } = useNavigation()
@@ -17,7 +17,10 @@ function HomeScreen() {
 
         <TransactionsScreenNavigationTab
           navigateTo={() => { navigate('Counter') }}
-          alignRight='true'
+        />
+
+        <BillsScreenNavigationTab
+          navigateTo={() => { navigate('Bills') }}
         />
       </LinearGradient>
     </View>

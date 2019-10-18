@@ -1,17 +1,18 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { useNavigation } from 'react-navigation-hooks';
 
 import HomeScreenNavigationTab from '../components/HomeScreenNavigationTab';
 import Lister from '../components/Lister';
 
-function CounterScreen() {
+function BillsScreen() {
   const { navigate } = useNavigation()
   return (
     <View style={styles.container}>
       <View style={{ flex: 2 }}>
         <HomeScreenNavigationTab
           navigateTo={() => { navigate('Home') }}
+          alignRight={true}
         />
       </View>
 
@@ -22,7 +23,7 @@ function CounterScreen() {
   )
 }
 
-CounterScreen.navigationOptions = {
+BillsScreen.navigationOptions = {
   header: null,
 }
 
@@ -34,4 +35,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CounterScreen
+export default BillsScreen

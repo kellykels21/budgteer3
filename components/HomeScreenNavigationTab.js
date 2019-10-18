@@ -4,11 +4,16 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 
 function HomeScreenNavigationTab(props) {
   return (
-    <View style={{ alignItems: 'flex-start', top: hp('50%') }}>
+    <View style={{
+      left: props.alignRight ? null : -1,
+      right: props.alignRight ? -1 : null,
+      top: hp('25%'),
+      position: 'absolute'
+    }}>
       <TouchableOpacity onPress={() => { props.navigateTo() }} >
         <Image
           style={{ width: wp('10%'), height: hp('12%') }}
-          source={require('../assets/home_tab.png')} />
+          source={props.alignRight ? require('../assets/home_tab_right.png') : require('../assets/home_tab_left.png')} />
       </TouchableOpacity>
     </View>
   )
