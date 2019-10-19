@@ -5,6 +5,9 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import TransactionsScreenNavigationTab from '../components/TransactionsScreenNavigationTab';
 import BillsScreenNavigationTab from '../components/BillsScreenNavigationTab';
+import ProgressChart from '../components/ProgressChart';
+
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 function HomeScreen() {
   const { navigate } = useNavigation()
@@ -22,6 +25,10 @@ function HomeScreen() {
         <BillsScreenNavigationTab
           navigateTo={() => { navigate('Bills') }}
         />
+
+        <View style={styles.chartContainer}>
+          <ProgressChart />
+        </View>
       </LinearGradient>
     </View>
   )
@@ -38,6 +45,11 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     justifyContent: 'center',
   },
+  chartContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    top: hp(20)
+  }
 });
 
 export default HomeScreen
