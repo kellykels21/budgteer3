@@ -5,8 +5,7 @@ import { useNavigation } from 'react-navigation-hooks';
 import HomeScreenNavigationTab from '../components/HomeScreenNavigationTab';
 import Lister from '../components/Lister';
 
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import ProgressChart from '../components/ProgressChart';
+import Counter from '../components/Counter';
 
 function CounterScreen() {
   const { navigate } = useNavigation()
@@ -23,18 +22,18 @@ function CounterScreen() {
         <Text style={styles.pageTitleText}>Transactions</Text>
       </View>
 
-      <View style={{ zIndex: 1 }}>
+      <View style={{ zIndex: 1, backgroundColor: "#F8F8F8" }}>
         <HomeScreenNavigationTab
           navigateTo={() => { navigate('Home') }}
           tabHeight='8%'
         />
       </View>
 
-      <View style={{ flex: 2 }}>
-        <View style={styles.chartContainer}>
-          <ProgressChart textColor="black" fill={transactionTotal} size={235} />
-        </View>
+
+      <View style={[{ flex: 2 }, styles.chartContainer]}>
+        <Counter number={`$${transactionTotal}`} />
       </View>
+
 
       <View style={{ flex: 3 }}>
         <Lister
@@ -67,7 +66,7 @@ const styles = StyleSheet.create({
   chartContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    // top: hp(20)
+    backgroundColor: "#F8F8F8",
   },
   pageTitleText: {
     fontWeight: '700',
@@ -77,7 +76,8 @@ const styles = StyleSheet.create({
   pageTitleContainer: {
     alignItems: "center",
     justifyContent: "flex-end",
-    marginBottom: 50
+    paddingBottom: 50,
+    backgroundColor: "#F8F8F8"
   }
 });
 
