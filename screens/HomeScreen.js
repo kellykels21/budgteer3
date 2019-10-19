@@ -12,6 +12,7 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 function HomeScreen() {
   const { navigate } = useNavigation()
+  const categories = require('../test/data/card_categories_mock_data')
 
   return (
     <View style={styles.container}>
@@ -35,7 +36,7 @@ function HomeScreen() {
           <ProgressChart textColor='white' fill={700} size={275} />
         </View>
 
-        <CategoryCardSwiper style={styles.categoryCardSwiper} />
+        <CategoryCardSwiper style={styles.categoryCardSwiper} cards={categories.data} />
       </LinearGradient>
     </View>
   )

@@ -5,16 +5,17 @@ import * as Progress from 'react-native-progress';
 
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-function CategoryCard() {
+function CategoryCard({ name, cap, amountSpent }) {
+
   return (
     <View style={styles.container}>
       <View style={styles.categoryTitleContainer}>
-        <Text style={styles.categoryTitle}>Shopping</Text>
+        <Text style={styles.categoryTitle}>{name}</Text>
       </View>
 
       <View style={styles.progressBarContainer}>
         <Progress.Bar
-          progress={0.3}
+          progress={getPercentage(amountSpent, cap)}
           width={325}
           height={hp('2%')}
           borderRadius={15}
@@ -22,10 +23,14 @@ function CategoryCard() {
       </View>
 
       <View style={styles.numberDisplayContainer}>
-        <Text style={styles.numberDisplay}>125/250</Text>
+        <Text style={styles.numberDisplay}>${amountSpent}/{cap}</Text>
       </View>
     </View>
   )
+}
+
+function getPercentage(amountSpent, cap) {
+  return amountSpent / cap
 }
 
 const styles = StyleSheet.create({

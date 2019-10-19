@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "_id": 1,
+      "category": "Shopping",
+      "cap": 250,
+      "amountSpent": 100
+    },
+    {
+      "_id": 2,
+      "category": "Entertainment",
+      "cap": 100,
+      "amountSpent": 65
+    },
+    {
+      "_id": 1,
+      "category": "Transportation",
+      "cap": 50,
+      "amountSpent": 15
+    }
+  ]
+}
