@@ -2,10 +2,10 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native'
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 
-function ProgressChart() {
+function ProgressChart(props) {
   const fill = 600;
   return (
-    <View>
+    <View style={{ zIndex: 1 }}>
       <AnimatedCircularProgress
         size={275}
         width={20}
@@ -17,7 +17,7 @@ function ProgressChart() {
         backgroundColor="#4B1CC6">
         {
           (fill) => (
-            <Text style={styles.text}>${fill}</Text>
+            <Text style={[styles.text, { color: props.textColor }]}>${fill}</Text>
           )
         }
       </AnimatedCircularProgress>
@@ -28,8 +28,7 @@ function ProgressChart() {
 const styles = StyleSheet.create({
   text: {
     fontSize: 60,
-    fontWeight: '700',
-    color: "white",
+    fontWeight: '700'
   },
 })
 

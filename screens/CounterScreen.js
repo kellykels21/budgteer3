@@ -5,6 +5,9 @@ import { useNavigation } from 'react-navigation-hooks';
 import HomeScreenNavigationTab from '../components/HomeScreenNavigationTab';
 import Lister from '../components/Lister';
 
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import ProgressChart from '../components/ProgressChart';
+
 function CounterScreen() {
   const { navigate } = useNavigation()
   const mockData = require('../test/data/counter_screen_mock_data')
@@ -12,9 +15,15 @@ function CounterScreen() {
   return (
     <View style={styles.container}>
       <View style={{ flex: 3 }}>
-        <HomeScreenNavigationTab
-          navigateTo={() => { navigate('Home') }}
-        />
+        <View style={{ zIndex: 1 }}>
+          <HomeScreenNavigationTab
+            navigateTo={() => { navigate('Home') }}
+          />
+        </View>
+
+        <View style={[styles.chartContainer, { zIndex: 0 }]}>
+          <ProgressChart textColor="black" />
+        </View>
       </View>
 
       <View style={{ flex: 2 }}>
@@ -35,6 +44,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'stretch',
   },
+  chartContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    top: hp(20)
+  }
 });
 
 export default CounterScreen

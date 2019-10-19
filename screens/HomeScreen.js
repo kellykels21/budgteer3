@@ -27,7 +27,7 @@ function HomeScreen() {
         />
 
         <View style={styles.chartContainer}>
-          <ProgressChart />
+          <ProgressChart textColor='white' />
         </View>
       </LinearGradient>
     </View>

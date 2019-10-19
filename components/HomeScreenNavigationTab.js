@@ -6,9 +6,9 @@ function HomeScreenNavigationTab(props) {
   return (
     <View style={{
       left: props.alignRight ? null : -1,
-      right: props.alignRight ? -10 : null,
+      right: props.alignRight ? -1 : null,
       top: hp('40%'),
-      position: 'absolute'
+      position: 'absolute',
     }}>
       <TouchableOpacity onPress={() => { props.navigateTo() }} >
         <Image
