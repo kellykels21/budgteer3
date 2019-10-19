@@ -7,7 +7,7 @@ function ProgressChart(props) {
   return (
     <View style={{ zIndex: 1 }}>
       <AnimatedCircularProgress
-        size={275}
+        size={props.size}
         width={20}
         lineCap='round'
         fill={props.fill}

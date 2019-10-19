@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Text } from 'react-native'
 import { useNavigation } from 'react-navigation-hooks';
 
 import HomeScreenNavigationTab from '../components/HomeScreenNavigationTab';
@@ -19,20 +19,24 @@ function CounterScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={{ flex: 3 }}>
-        <View style={{ zIndex: 1 }}>
-          <HomeScreenNavigationTab
-            navigateTo={() => { navigate('Home') }}
-            tabHeight='40%'
-          />
-        </View>
+      <View style={[styles.pageTitleContainer, { flex: 1 }]}>
+        <Text style={styles.pageTitleText}>Transactions</Text>
+      </View>
 
-        <View style={styles.chartContainer}>
-          <ProgressChart textColor="black" fill={transactionTotal} />
-        </View>
+      <View style={{ zIndex: 1 }}>
+        <HomeScreenNavigationTab
+          navigateTo={() => { navigate('Home') }}
+          tabHeight='8%'
+        />
       </View>
 
       <View style={{ flex: 2 }}>
+        <View style={styles.chartContainer}>
+          <ProgressChart textColor="black" fill={transactionTotal} size={235} />
+        </View>
+      </View>
+
+      <View style={{ flex: 3 }}>
         <Lister
           data={mockData.data}></Lister>
       </View>
@@ -63,7 +67,17 @@ const styles = StyleSheet.create({
   chartContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    top: hp(20)
+    // top: hp(20)
+  },
+  pageTitleText: {
+    fontWeight: '700',
+    fontSize: 36,
+    color: 'black'
+  },
+  pageTitleContainer: {
+    alignItems: "center",
+    justifyContent: "flex-end",
+    marginBottom: 50
   }
 });
 
