@@ -23,7 +23,7 @@ function Lister(props) {
             </View>
             <View
               style={{
-                borderBottomColor: 'black',
+                borderBottomColor: '#dedede',
                 borderBottomWidth: 1,
                 width: "100%",
                 alignItems: "center",

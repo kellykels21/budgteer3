@@ -34,7 +34,7 @@ function BillsScreen() {
         <Counter number={`$${billTotal}`} />
       </View>
 
-      <View style={{ flex: 3 }}>
+      <View style={{ flex: 3, padding: 15 }}>
         <Lister data={mockData.data} />
       </View>
     </View>

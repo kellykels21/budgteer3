@@ -35,7 +35,7 @@ function CounterScreen() {
       </View>
 
 
-      <View style={{ flex: 3 }}>
+      <View style={{ flex: 3, padding: 15 }}>
         <Lister
           data={mockData.data}></Lister>
       </View>
