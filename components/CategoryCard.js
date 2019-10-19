@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient';
 
 import * as Progress from 'react-native-progress';
 
@@ -9,22 +10,26 @@ function CategoryCard({ name, cap, amountSpent }) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.categoryTitleContainer}>
-        <Text style={styles.categoryTitle}>{name}</Text>
-      </View>
+      <LinearGradient
+        colors={['#fd1d1d', '#833ab4']}
+        style={{ flex: 1, borderRadius: 5, padding: 20, }}>
+        <View style={styles.categoryTitleContainer}>
+          <Text style={styles.categoryTitle}>{name}</Text>
+        </View>
 
-      <View style={styles.progressBarContainer}>
-        <Progress.Bar
-          progress={getPercentage(amountSpent, cap)}
-          width={325}
-          height={hp('2%')}
-          borderRadius={15}
-        />
-      </View>
+        <View style={styles.progressBarContainer}>
+          <Progress.Bar
+            progress={getPercentage(amountSpent, cap)}
+            width={325}
+            height={hp('2%')}
+            borderRadius={15}
+          />
+        </View>
 
-      <View style={styles.numberDisplayContainer}>
-        <Text style={styles.numberDisplay}>${amountSpent}/{cap}</Text>
-      </View>
+        <View style={styles.numberDisplayContainer}>
+          <Text style={styles.numberDisplay}>${amountSpent}/{cap}</Text>
+        </View>
+      </LinearGradient>
     </View>
   )
 }
@@ -38,9 +43,8 @@ const styles = StyleSheet.create({
     height: hp('25%'),
     marginRight: 20,
     marginLeft: 20,
-    padding: 20,
     backgroundColor: 'red',
-    borderRadius: 20,
+    borderRadius: 50,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
