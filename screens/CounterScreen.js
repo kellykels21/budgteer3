@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, StyleSheet } from 'react-native'
 import { useNavigation } from 'react-navigation-hooks';
 
@@ -10,7 +10,12 @@ import ProgressChart from '../components/ProgressChart';
 
 function CounterScreen() {
   const { navigate } = useNavigation()
+  const [transactionTotal, setTransactionTotal] = useState(0)
   const mockData = require('../test/data/counter_screen_mock_data')
+
+  useEffect(() => {
+    getTransactionListTotal(mockData.data, setTransactionTotal)
+  })
 
   return (
     <View style={styles.container}>
@@ -18,11 +23,12 @@ function CounterScreen() {
         <View style={{ zIndex: 1 }}>
           <HomeScreenNavigationTab
             navigateTo={() => { navigate('Home') }}
+            tabHeight='40%'
           />
         </View>
 
-        <View style={[styles.chartContainer, { zIndex: 0 }]}>
-          <ProgressChart textColor="black" />
+        <View style={styles.chartContainer}>
+          <ProgressChart textColor="black" fill={transactionTotal} />
         </View>
       </View>
 
@@ -36,6 +42,16 @@ function CounterScreen() {
 
 CounterScreen.navigationOptions = {
   header: null,
+}
+
+function getTransactionListTotal(transactionList, setTransactionTotal) {
+  let sum = 0
+
+  transactionList.forEach((transaction) => {
+    sum += parseInt(transaction.amount)
+  })
+
+  setTransactionTotal(sum)
 }
 
 const styles = StyleSheet.create({

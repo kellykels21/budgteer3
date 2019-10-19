@@ -6,7 +6,9 @@
       "description": "Electricity",
       "amount": "100",
       "paymentDate": "fake date",
-      "type": "Bill"
+      "type": "Bill",
+      "isPaid": true,
+      "dueDate": "fake date"
     },
     {
       "_id": 2,
@@ -14,7 +16,9 @@
       "description": "Mortgage Loan",
       "amount": "1050",
       "paymentDate": "fake date",
-      "type": "Bill"
+      "type": "Bill",
+      "isPaid": false,
+      "dueDate": "fake date"
     },
     {
       "_id": 3,
@@ -22,7 +26,9 @@
       "description": "Car Note",
       "amount": "560",
       "paymentDate": "fake date",
-      "type": "Bill"
+      "type": "Bill",
+      "isPaid": false,
+      "dueDate": "fake date"
     }
   ]
 }

@@ -12,6 +12,7 @@ function Counter(props) {
 const styles = StyleSheet.create({
   text: {
     fontSize: 60,
+    fontWeight: '700',
     color: "#FF0E75",
   },
 })

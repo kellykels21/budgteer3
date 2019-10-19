@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Text } from 'react-native'
 import { useNavigation } from 'react-navigation-hooks';
 
 import HomeScreenNavigationTab from '../components/HomeScreenNavigationTab';
@@ -13,14 +13,23 @@ function BillsScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={[{ flex: 3 }, styles.topSection]}>
+      <View style={[styles.pageTitleContainer, { flex: 1 }]}>
+        <Text style={styles.pageTitleText}>Bills</Text>
+      </View>
+
+      <View style={{ zIndex: 1 }}>
         <HomeScreenNavigationTab
           navigateTo={() => { navigate('Home') }}
           alignRight={true}
+          tabHeight='10%'
         />
+      </View>
+
+      <View style={[{ flex: 2 }, styles.topSection]}>
         <Counter number={"$250"} />
       </View>
-      <View style={{ flex: 2 }}>
+
+      <View style={{ flex: 3 }}>
         <Lister data={mockData.data} />
       </View>
     </View>
@@ -42,6 +51,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#F8F8F8"
+  },
+  pageTitleText: {
+    fontWeight: '700',
+    fontSize: 36,
+    color: 'black'
+  },
+  pageTitleContainer: {
+    alignItems: "center",
+    justifyContent: "flex-end",
   }
 });
 

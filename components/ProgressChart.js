@@ -10,14 +10,14 @@ function ProgressChart(props) {
         size={275}
         width={20}
         lineCap='round'
-        fill={fill}
+        fill={props.fill}
         rotation={0}
         tintColor="#FF0E75"
         arcSweepAngle={180}
         backgroundColor="#4B1CC6">
         {
           (fill) => (
-            <Text style={[styles.text, { color: props.textColor }]}>${fill}</Text>
+            <Text style={[styles.text, { color: props.textColor }]}>${props.fill}</Text>
           )
         }
       </AnimatedCircularProgress>
