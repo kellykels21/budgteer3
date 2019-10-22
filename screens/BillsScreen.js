@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, Modal, TouchableHighlight } from 'react-native'
+import { View, StyleSheet, Text } from 'react-native'
 import { useNavigation } from 'react-navigation-hooks';
 
 import HomeScreenNavigationTab from '../components/HomeScreenNavigationTab';
 import Lister from '../components/Lister';
 import Counter from '../components/Counter';
-import AmountCircleSlider from '../components/AmountCircleSlider';
 import SliderModal from '../components/SliderModal';
 
 

@@ -20,31 +20,27 @@ function Lister(props) {
         data={props.data}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => props._onPressItem(item)}>
-            <Swipeout
-              right={swipeoutBtns}
-              backgroundColor='transparent'>
-              <View style={styles.listItem}>
-                <View style={styles.listLeft}>
-                  <Text style={styles.leftItem}>{item.vendor}</Text>
-                  <Text style={styles.leftItem}>{item.description}</Text>
-                </View>
-
-                <View style={styles.listRight}>
-                  <Text style={styles.rightItem}>${item.amount}</Text>
-                  <Text style={styles.rightItem}>
-                    {new Date(item.paymentDate).toDateString()}
-                  </Text>
-                </View>
+            <View style={styles.listItem}>
+              <View style={styles.listLeft}>
+                <Text style={styles.leftItem}>{item.vendor}</Text>
+                <Text style={styles.leftItem}>{item.description}</Text>
               </View>
-              <View
-                style={{
-                  borderBottomColor: '#dedede',
-                  borderBottomWidth: 1,
-                  width: "100%",
-                  alignItems: "center",
-                }}
-              />
-            </Swipeout>
+
+              <View style={styles.listRight}>
+                <Text style={styles.rightItem}>${item.amount}</Text>
+                <Text style={styles.rightItem}>
+                  {new Date(item.paymentDate).toDateString()}
+                </Text>
+              </View>
+            </View>
+            <View
+              style={{
+                borderBottomColor: '#dedede',
+                borderBottomWidth: 1,
+                width: "100%",
+                alignItems: "center",
+              }}
+            />
           </TouchableOpacity>
         )}
         keyExtractor={item => item._id}

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, PanResponder } from 'react-native'
+import React from 'react';
+import { View, StyleSheet, Text } from 'react-native'
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
-import { Circle } from 'react-native-progress';
 
 function AmountCircleSlider(props) {
   return (
