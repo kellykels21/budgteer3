@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Button, Modal, Text } from 'react-native'
+import { View, StyleSheet, TouchableOpacity, Modal, Text, Image } from 'react-native'
 import AmountCircleSlider from './AmountCircleSlider';
 
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 function SliderModal(props) {
   return (
@@ -16,14 +16,16 @@ function SliderModal(props) {
       </View>
 
       <View style={styles.chartContainer}>
-        <AmountCircleSlider textColor='black' fill={700} size={275} />
+        <AmountCircleSlider textColor='black' fill={700} size={300} />
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button
-          title="Done"
-          onPress={() => { props.setIsModalVisible(false) }}
-        />
+        <TouchableOpacity onPress={() => { props.setIsModalVisible() }} >
+          <Image
+            style={{ width: wp('80%'), height: hp('8%'), borderRadius: 35 }}
+            source={require('../assets/purple_button.png')}>
+          </Image>
+        </TouchableOpacity>
       </View>
     </Modal>
   )
@@ -46,6 +48,7 @@ const styles = StyleSheet.create({
     top: hp('15%'),
   },
   buttonContainer: {
+    alignItems: "center",
     top: hp('50%')
   }
 })

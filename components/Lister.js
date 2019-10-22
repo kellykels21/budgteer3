@@ -1,6 +1,18 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Text, FlatList } from 'react-native'
+import Swipeout from 'react-native-swipeout';
 
+const swipeoutBtns = [
+  {
+    text: 'Delete',
+    backgroundColor: '#ff3333',
+    onPress: () => { } // NEED TO IMPLEMENT 
+  }
+]
+
+function deleteItem(item) {
+  console.log(item)
+}
 function Lister(props) {
   return (
     <View>
@@ -8,27 +20,31 @@ function Lister(props) {
         data={props.data}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => props._onPressItem(item)}>
-            <View style={styles.listItem}>
-              <View style={styles.listLeft}>
-                <Text style={styles.leftItem}>{item.vendor}</Text>
-                <Text style={styles.leftItem}>{item.description}</Text>
-              </View>
+            <Swipeout
+              right={swipeoutBtns}
+              backgroundColor='transparent'>
+              <View style={styles.listItem}>
+                <View style={styles.listLeft}>
+                  <Text style={styles.leftItem}>{item.vendor}</Text>
+                  <Text style={styles.leftItem}>{item.description}</Text>
+                </View>
 
-              <View style={styles.listRight}>
-                <Text style={styles.rightItem}>${item.amount}</Text>
-                <Text style={styles.rightItem}>
-                  {new Date(item.paymentDate).toDateString()}
-                </Text>
+                <View style={styles.listRight}>
+                  <Text style={styles.rightItem}>${item.amount}</Text>
+                  <Text style={styles.rightItem}>
+                    {new Date(item.paymentDate).toDateString()}
+                  </Text>
+                </View>
               </View>
-            </View>
-            <View
-              style={{
-                borderBottomColor: '#dedede',
-                borderBottomWidth: 1,
-                width: "100%",
-                alignItems: "center",
-              }}
-            />
+              <View
+                style={{
+                  borderBottomColor: '#dedede',
+                  borderBottomWidth: 1,
+                  width: "100%",
+                  alignItems: "center",
+                }}
+              />
+            </Swipeout>
           </TouchableOpacity>
         )}
         keyExtractor={item => item._id}
