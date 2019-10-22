@@ -17,7 +17,7 @@ function HomeScreen() {
   return (
     <View style={styles.container}>
       <LinearGradient
-        colors={['#6e00ff', '#4500a1']}
+        colors={['#6e00ff', '#000481']}
         style={{ flex: 1, borderRadius: 5 }}>
 
         <View style={{ zIndex: 1 }}>

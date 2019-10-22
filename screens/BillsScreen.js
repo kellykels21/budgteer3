@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet, Text, Modal, TouchableHighlight } from 'react-native'
 import { useNavigation } from 'react-navigation-hooks';
 
 import HomeScreenNavigationTab from '../components/HomeScreenNavigationTab';
 import Lister from '../components/Lister';
 import Counter from '../components/Counter';
+import AmountCircleSlider from '../components/AmountCircleSlider';
+import SliderModal from '../components/SliderModal';
 
 
 function BillsScreen() {
   const { navigate } = useNavigation()
   const mockData = require('../test/data/bills_screen_mock_data')
   const [billTotal, setBillTotal] = useState(0)
+  const [itemDetail, setItemDetail] = useState({})
+  const [isModalVisible, setIsModalVisible] = useState(false)
 
   useEffect(() => {
     getBillListTotal(mockData.data, setBillTotal)
@@ -35,7 +39,13 @@ function BillsScreen() {
       </View>
 
       <View style={{ flex: 3, padding: 15 }}>
-        <Lister data={mockData.data} />
+        <Lister
+          data={mockData.data}
+          _onPressItem={(item) => { setItemDetail(item); setIsModalVisible(true) }} />
+      </View>
+
+      <View>
+        <SliderModal isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
       </View>
     </View>
   )
@@ -44,6 +54,8 @@ function BillsScreen() {
 BillsScreen.navigationOptions = {
   header: null,
 }
+
+
 
 function getBillListTotal(billList, setBillTotal) {
   let sum = 0
@@ -76,6 +88,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-end",
     backgroundColor: "#F8F8F8"
+  },
+  itemDetailModal: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 
