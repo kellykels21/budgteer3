@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, Modal, TouchableHighlight } from 'react-native'
+import { View, StyleSheet, Text, PanResponder } from 'react-native'
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
+import { Circle } from 'react-native-progress';
 
 function AmountCircleSlider(props) {
   return (
@@ -13,7 +14,8 @@ function AmountCircleSlider(props) {
         rotation={0}
         tintColor="#FF0E75"
         arcSweepAngle={180}
-        backgroundColor="#4B1CC6">
+        backgroundColor="#4B1CC6"
+      >
         {
           (fill) => (
             <Text style={[styles.text, { color: props.textColor }]}>${props.fill}</Text>

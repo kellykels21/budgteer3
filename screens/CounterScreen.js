@@ -37,7 +37,7 @@ function CounterScreen() {
 
       <View style={{ flex: 3, padding: 15 }}>
         <Lister
-          data={mockData.data}></Lister>
+          data={mockData.data} _onPressItem={() => {  }}></Lister>
       </View>
     </View>
   )

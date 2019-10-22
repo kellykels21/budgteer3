@@ -45,7 +45,7 @@ function BillsScreen() {
       </View>
 
       <View>
-        <SliderModal isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
+        <SliderModal isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} itemDetail={itemDetail} />
       </View>
     </View>
   )
