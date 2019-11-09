@@ -41,9 +41,8 @@ function getPercentage(amountSpent, cap) {
 const styles = StyleSheet.create({
   container: {
     height: hp('25%'),
-    marginRight: 20,
-    marginLeft: 20,
-    backgroundColor: 'red',
+    paddingRight: 20,
+    paddingLeft: 22,
     borderRadius: 50,
     shadowColor: "#000",
     shadowOffset: {
@@ -52,7 +51,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.5,
     shadowRadius: 10.16,
-
     elevation: 20,
   },
   categoryTitle: {

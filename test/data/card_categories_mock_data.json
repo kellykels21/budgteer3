@@ -13,9 +13,15 @@
       "amountSpent": 65
     },
     {
-      "_id": 1,
+      "_id": 3,
       "category": "Transportation",
       "cap": 50,
+      "amountSpent": 15
+    },
+    {
+      "_id": 4,
+      "category": "Food & Dining",
+      "cap": 150,
       "amountSpent": 15
     }
   ]
