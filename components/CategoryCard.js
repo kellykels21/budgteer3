@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   },
   categoryTitle: {
     fontSize: 28,
-    fontWeight: 700,
+    fontWeight: "700",
     color: 'white'
   },
   categoryTitleContainer: {
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   numberDisplay: {
     fontSize: 24,
-    fontWeight: 700,
+    fontWeight: "700",
     color: 'white'
   }
 })
