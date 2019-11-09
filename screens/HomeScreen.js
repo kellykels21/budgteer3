@@ -36,7 +36,9 @@ function HomeScreen() {
           <ProgressChart textColor='white' fill={700} size={275} />
         </View>
 
-        <CategoryCardSwiper style={styles.categoryCardSwiper} cards={categories.data} />
+        <View style={styles.categoryCardSwiper}>
+          <CategoryCardSwiper cards={categories.data} />
+        </View>
       </LinearGradient>
     </View>
   )
@@ -65,7 +67,9 @@ const styles = StyleSheet.create({
     zIndex: 0
   },
   categoryCardSwiper: {
-    zIndex: 0
+    flex: 1,
+    zIndex: 0,
+    top: hp('35%')
   }
 });
 
