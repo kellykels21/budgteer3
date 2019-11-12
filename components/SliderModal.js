@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, TouchableOpacity, Modal, Text, Image } from 'react-native'
-import AmountCircleSlider from './AmountCircleSlider';
-
+import CircularProgressSlider from "../components/CircularProgressSlider";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
+const MAX_VALUE = 500;
+
 function SliderModal(props) {
+  const initialCountValue = 179;
+  const [degreeCount, setDegreeCount] = useState(initialCountValue);
+  const realCount = Math.floor(((degreeCount + 1) / 360) * MAX_VALUE);
+
   return (
     <Modal
       visible={props.isModalVisible}
@@ -16,7 +21,15 @@ function SliderModal(props) {
       </View>
 
       <View style={styles.chartContainer}>
-        <AmountCircleSlider textColor='black' fill={700} size={300} />
+        <CircularProgressSlider
+          top={hp("5%")}
+          value={initialCountValue} // initial degree value
+          dialRadius={137.5} // radius of the circular
+          dialWidth={15} // the width of the path
+          btnRadius={20} // the radius of the cap.
+          count={realCount}
+          onValueChange={v => setDegreeCount(v)}
+        />
       </View>
 
       <View style={styles.buttonContainer}>
