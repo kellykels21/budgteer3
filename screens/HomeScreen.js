@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { useNavigation } from "react-navigation-hooks";
 import { LinearGradient } from "expo-linear-gradient";
@@ -6,13 +6,21 @@ import { LinearGradient } from "expo-linear-gradient";
 import TransactionsScreenNavigationTab from "../components/TransactionsScreenNavigationTab";
 import BillsScreenNavigationTab from "../components/BillsScreenNavigationTab";
 import ProgressChart from "../components/ProgressChart";
+import CircularProgressSlider from "../components/CircularProgressSlider";
 import CategoryCardSwiper from "../components/CategoryCardSwiper";
 
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
+const MAX_VALUE = 1400;
+
 function HomeScreen() {
   const { navigate } = useNavigation();
   const categories = require("../test/data/card_categories_mock_data");
+
+  // Calc real count
+  const initialCountValue = 179;
+  const [degreeCount, setDegreeCount] = useState(initialCountValue);
+  const realCount = Math.floor(((degreeCount + 1) / 360) * MAX_VALUE);
 
   return (
     <View style={styles.container}>
@@ -36,9 +44,15 @@ function HomeScreen() {
           />
         </View>
 
-        <View style={styles.chartContainer}>
-          <ProgressChart textColor="white" fill={700} size={275} />
-        </View>
+        <CircularProgressSlider
+          top={hp("5%")}
+          value={initialCountValue} // initial degree value
+          dialRadius={137.5} // radius of the circular
+          dialWidth={15} // the width of the path
+          btnRadius={20} // the radius of the cap.
+          count={realCount}
+          onValueChange={v => setDegreeCount(v)}
+        />
 
         <View style={styles.categoryCardSwiper}>
           <CategoryCardSwiper cards={categories.data} />
@@ -73,7 +87,7 @@ const styles = StyleSheet.create({
   categoryCardSwiper: {
     flex: 1,
     zIndex: 0,
-    top: hp("35%")
+    top: hp("30%")
   }
 });
 

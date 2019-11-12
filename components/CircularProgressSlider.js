@@ -4,9 +4,11 @@ import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import CircleSlider from "../components/CircleSlider";
 
 const CircularProgressSlider = props => {
+  const yCenter = props.top + props.dialRadius;
+
   return (
-    <View style={[styles.chartContainer, { top: hp(props.top) }]}>
-      <CircleSlider {...props} />
+    <View style={[styles.chartContainer, { top: props.top }]}>
+      <CircleSlider {...props} yCenter={yCenter} />
       <View style={styles.countTextWrapper}>
         <Text style={styles.countText}>{`$${props.count}`}</Text>
       </View>
