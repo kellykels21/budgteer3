@@ -59,7 +59,7 @@ export default class CircleSlider extends Component {
 
       return (
         Math.round((ratio * (Math.atan((y - hC) / (x - hC)) * 180)) / Math.PI) /
-          ratio +
+        ratio +
         (x > hC ? 90 : 270)
       );
     }
@@ -89,7 +89,7 @@ export default class CircleSlider extends Component {
           fill="none"
           d={`M${startCoord.x} ${startCoord.y} A ${dR} ${dR} 0 ${
             this.state.angle > 180 ? 1 : 0
-          } 1 ${endCoord.x} ${endCoord.y}`}
+            } 1 ${endCoord.x} ${endCoord.y}`}
         />
 
         <G x={endCoord.x - bR} y={endCoord.y - bR}>

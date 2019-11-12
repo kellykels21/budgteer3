@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   countText: {
     fontSize: 60,
     fontWeight: "700",
-    color: "white"
+    color: "black"
   }
 });
 

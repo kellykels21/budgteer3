@@ -6,7 +6,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import TransactionsScreenNavigationTab from "../components/TransactionsScreenNavigationTab";
 import BillsScreenNavigationTab from "../components/BillsScreenNavigationTab";
 import ProgressChart from "../components/ProgressChart";
-import CircularProgressSlider from "../components/CircularProgressSlider";
 import CategoryCardSwiper from "../components/CategoryCardSwiper";
 
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
@@ -44,15 +43,9 @@ function HomeScreen() {
           />
         </View>
 
-        <CircularProgressSlider
-          top={hp("5%")}
-          value={initialCountValue} // initial degree value
-          dialRadius={137.5} // radius of the circular
-          dialWidth={15} // the width of the path
-          btnRadius={20} // the radius of the cap.
-          count={realCount}
-          onValueChange={v => setDegreeCount(v)}
-        />
+        <View style={styles.chartContainer}>
+          <ProgressChart textColor='white' fill={700} size={275} />
+        </View>
 
         <View style={styles.categoryCardSwiper}>
           <CategoryCardSwiper cards={categories.data} />
