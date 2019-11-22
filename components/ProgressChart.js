@@ -28,7 +28,7 @@ function ProgressChart(props) {
 const styles = StyleSheet.create({
   text: {
     fontSize: 60,
-    fontWeight: '700'
+    fontWeight: '700',
   },
 })
 
