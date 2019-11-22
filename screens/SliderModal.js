@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
   itemDetailModal: {
     flex: 1,
     paddingTop: "25%",
+    justifyContent: 'center'
   },
   pageTitleText: {
     fontWeight: '700',
@@ -56,16 +57,14 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     alignItems: "center",
-    top: "10%"
   },
   chartContainer: {
     alignItems: "center",
-    top: "10%",
-    paddingTop: "15%",
+    paddingTop: "30%",
+    paddingBottom: "20%"
   },
   buttonContainer: {
     alignItems: "center",
-    top: "30%"
   }
 })
 
