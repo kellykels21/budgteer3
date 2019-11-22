@@ -5,7 +5,7 @@ import { useNavigation } from 'react-navigation-hooks';
 import HomeScreenNavigationTab from '../components/HomeScreenNavigationTab';
 import Lister from '../components/Lister';
 import Counter from '../components/Counter';
-import SliderModal from '../components/SliderModal';
+import SliderModal from '../screens/SliderModal';
 
 
 function BillsScreen() {
