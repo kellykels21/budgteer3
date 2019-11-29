@@ -7,14 +7,18 @@ import TransactionsScreenNavigationTab from "../components/TransactionsScreenNav
 import BillsScreenNavigationTab from "../components/BillsScreenNavigationTab";
 import ProgressChart from "../components/ProgressChart";
 import CategoryCardSwiper from "../components/CategoryCardSwiper";
+import SliderModal from '../components/SliderModal';
 
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
 const MAX_VALUE = 1400;
 
+
 function HomeScreen() {
   const { navigate } = useNavigation();
   const categories = require("../test/data/card_categories_mock_data");
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [itemDetail, setItemDetail] = useState({})
 
   // Calc real count
   const initialCountValue = 179;
@@ -47,12 +51,24 @@ function HomeScreen() {
         </View>
 
         <View style={styles.categoryCardSwiper}>
-          <CategoryCardSwiper cards={categories.data} />
+          <CategoryCardSwiper cards={categories.data} setupModalItem={item => setupModalItem(item, setItemDetail(), setIsModalVisible())} />
         </View>
       </LinearGradient>
+
+      <View>
+        <SliderModal isModalVisible={isModalVisible} setIsModalVisible={() => { setIsModalVisible(false) }} itemDetail={itemDetail} />
+      </View>
     </View>
   );
+
+  function setupModalItem(name) {
+    console.log('Hey you hit a card: ' + name)
+    setItemDetail({ description: name })
+    setIsModalVisible(true)
+  }
 }
+
+
 
 HomeScreen.navigationOptions = {
   header: null

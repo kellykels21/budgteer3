@@ -5,13 +5,13 @@ import CategoryCard from './CategoryCard';
 
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
-function CategoryCardSwiper({ cards }) {
+function CategoryCardSwiper(props) {
 
   createCards = (data) => {
     const card = data.item
     return (
       <View style={styles.card}>
-        <CategoryCard name={card.category} cap={card.cap} amountSpent={card.amountSpent} />
+        <CategoryCard name={card.category} cap={card.cap} amountSpent={card.amountSpent} onClick={item => props.setupModalItem(item)} />
       </View>
     )
   }
@@ -19,7 +19,7 @@ function CategoryCardSwiper({ cards }) {
   return (
     <View style={styles.container}>
       <FlatList
-        data={cards}
+        data={props.cards}
         pagingEnabled={true}
         horizontal={true}
         showsHorizontalScrollIndicator={false}

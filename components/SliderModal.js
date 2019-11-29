@@ -9,7 +9,7 @@ function SliderModal(props) {
   const initialCountValue = 179;
   const [degreeCount, setDegreeCount] = useState(initialCountValue);
   const realCount = Math.floor(((degreeCount + 1) / 360) * MAX_VALUE);
-
+  console.log(props)
   return (
     <Modal
       visible={props.isModalVisible}
