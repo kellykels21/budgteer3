@@ -4,7 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import * as Progress from 'react-native-progress';
 
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 function CategoryCard({ name, cap, amountSpent }) {
 
@@ -20,7 +20,7 @@ function CategoryCard({ name, cap, amountSpent }) {
         <View style={styles.progressBarContainer}>
           <Progress.Bar
             progress={getPercentage(amountSpent, cap)}
-            width={325}
+            width={wp('75%')}
             height={hp('2%')}
             borderRadius={15}
           />
@@ -40,9 +40,10 @@ function getPercentage(amountSpent, cap) {
 
 const styles = StyleSheet.create({
   container: {
-    height: hp('25%'),
+    height: hp('27%'),
+    width: wp('100%'),
+    paddingLeft: 20,
     paddingRight: 20,
-    paddingLeft: 22,
     borderRadius: 50,
     shadowColor: "#000",
     shadowOffset: {
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
   },
   numberDisplayContainer: {
     alignItems: 'flex-end',
-    marginRight: 15
+    marginRight: 20
   },
   numberDisplay: {
     fontSize: 24,

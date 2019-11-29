@@ -25,7 +25,7 @@ function HomeScreen() {
     <View style={styles.container}>
       <LinearGradient
         colors={["#6e00ff", "#000481"]}
-        style={{ flex: 1, borderRadius: 5 }}
+        style={{ flex: 1 }}
       >
         <View style={{ zIndex: 1 }}>
           <TransactionsScreenNavigationTab
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   categoryCardSwiper: {
     flex: 1,
     zIndex: 0,
-    top: hp("30%")
+    top: hp("30%"),
   }
 });
 

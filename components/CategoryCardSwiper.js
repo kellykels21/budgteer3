@@ -34,9 +34,6 @@ function CategoryCardSwiper({ cards }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingLeft: 5,
-    justifyContent: "center",
-    alignItems: "center"
   }
 })
 
