@@ -46,9 +46,8 @@ function SliderModal(props) {
 
 const styles = StyleSheet.create({
   chartContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    top: hp('30%'),
+    flex: 2,
+    paddingBottom: 100
   },
   pageTitleText: {
     fontWeight: '700',
@@ -56,13 +55,13 @@ const styles = StyleSheet.create({
     color: 'black'
   },
   pageTitleContainer: {
-    alignItems: "center",
-    justifyContent: "flex-end",
-    top: hp('15%'),
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-end'
   },
   buttonContainer: {
-    alignItems: "center",
-    top: hp('50%')
+    flex: 1,
+    alignItems: "center"
   }
 })
 
