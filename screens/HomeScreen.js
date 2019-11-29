@@ -23,26 +23,25 @@ function HomeScreen() {
 
   return (
     <View style={styles.container}>
+      <View style={{ zIndex: 1 }}>
+        <TransactionsScreenNavigationTab
+          navigateTo={() => {
+            navigate("Counter");
+          }}
+        />
+      </View>
+
+      <View style={{ zIndex: 1 }}>
+        <BillsScreenNavigationTab
+          navigateTo={() => {
+            navigate("Bills");
+          }}
+        />
+      </View>
       <LinearGradient
         colors={["#6e00ff", "#000481"]}
         style={{ flex: 1 }}
       >
-        <View style={{ zIndex: 1 }}>
-          <TransactionsScreenNavigationTab
-            navigateTo={() => {
-              navigate("Counter");
-            }}
-          />
-        </View>
-
-        <View style={{ zIndex: 1 }}>
-          <BillsScreenNavigationTab
-            navigateTo={() => {
-              navigate("Bills");
-            }}
-          />
-        </View>
-
         <View style={styles.chartContainer}>
           <ProgressChart textColor='white' fill={700} size={275} />
         </View>
@@ -67,20 +66,12 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   chartContainer: {
+    flex: 2,
     alignItems: "center",
     justifyContent: "center",
-    top: hp("15%")
-  },
-  cardContainer: {
-    justifyContent: "center",
-    backgroundColor: "red",
-    top: hp("50%"),
-    zIndex: 0
   },
   categoryCardSwiper: {
     flex: 1,
-    zIndex: 0,
-    top: hp("30%"),
   }
 });
 
