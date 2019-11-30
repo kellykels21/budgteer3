@@ -4,7 +4,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 
 function TransactionsScreenNavigationTab(props) {
   return (
-    <View style={{ top: hp('49%'), right: 0, position: 'absolute' }}>
+    <View style={{ top: hp('49%'), right: 0, position: 'absolute', zIndex: 1 }}>
       <TouchableOpacity onPress={() => { props.navigateTo() }} >
         <Image
           style={{ width: wp('10%'), height: hp('12%') }}

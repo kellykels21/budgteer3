@@ -1,41 +1,49 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 
 import * as Progress from 'react-native-progress';
 
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
-function CategoryCard({ name, cap, amountSpent }) {
+function CategoryCard({ name, cap, amountSpent, onClick }) {
 
   return (
-    <View style={styles.container}>
-      <LinearGradient
-        colors={['#fd1d1d', '#833ab4']}
-        style={{ flex: 1, borderRadius: 5, padding: 20, }}>
-        <View style={styles.categoryTitleContainer}>
-          <Text style={styles.categoryTitle}>{name}</Text>
-        </View>
+    <View>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => onClick(name)}>
+        <LinearGradient
+          colors={['#fd1d1d', '#833ab4']}
+          style={{ flex: 1, borderRadius: 5, padding: 20, }}>
+          <View style={styles.categoryTitleContainer}>
+            <Text style={styles.categoryTitle}>{name}</Text>
+          </View>
 
-        <View style={styles.progressBarContainer}>
-          <Progress.Bar
-            progress={getPercentage(amountSpent, cap)}
-            width={wp('75%')}
-            height={hp('2%')}
-            borderRadius={15}
-          />
-        </View>
+          <View style={styles.progressBarContainer}>
+            <Progress.Bar
+              progress={getPercentage(amountSpent, cap)}
+              width={wp('75%')}
+              height={hp('2%')}
+              borderRadius={15}
+            />
+          </View>
 
-        <View style={styles.numberDisplayContainer}>
-          <Text style={styles.numberDisplay}>${amountSpent}/{cap}</Text>
-        </View>
-      </LinearGradient>
+          <View style={styles.numberDisplayContainer}>
+            <Text style={styles.numberDisplay}>${amountSpent}/{cap}</Text>
+          </View>
+        </LinearGradient>
+      </TouchableOpacity>
     </View>
   )
 }
 
 function getPercentage(amountSpent, cap) {
   return amountSpent / cap
+}
+
+function setupItem() {
+
 }
 
 const styles = StyleSheet.create({
