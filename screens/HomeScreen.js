@@ -7,7 +7,7 @@ import TransactionsScreenNavigationTab from "../components/TransactionsScreenNav
 import BillsScreenNavigationTab from "../components/BillsScreenNavigationTab";
 import ProgressChart from "../components/ProgressChart";
 import CategoryCardSwiper from "../components/CategoryCardSwiper";
-import SliderModal from '../components/SliderModal';
+import SliderModal from './SliderModal';
 
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
