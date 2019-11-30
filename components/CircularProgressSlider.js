@@ -19,7 +19,7 @@ const CircularProgressSlider = props => {
 const styles = StyleSheet.create({
   chartContainer: {
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   countTextWrapper: {
     position: "absolute"

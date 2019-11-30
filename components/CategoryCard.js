@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     marginBottom: 12
   },
   progressBarContainer: {
-    marginBottom: 10
+    marginBottom: 10,
   },
   numberDisplayContainer: {
     alignItems: 'flex-end',
