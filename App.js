@@ -1,24 +1,16 @@
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import React, { Component } from "react";
+import { Provider } from "react-redux";
+import configureStore from "./store/configureStore";
+import AppNavigator from "./AppNavigator";
 
-import HomeScreen from './screens/HomeScreen';
-import CounterScreen from './screens/CounterScreen';
-import BillsScreen from './screens/BillsScreen';
-import handleCustomTransition from './utils/TransitionHandler'
+const store = configureStore();
 
-const MainNavigator = createStackNavigator({
-  Bills: { screen: BillsScreen },
-  Home: { screen: HomeScreen },
-  Counter: { screen: CounterScreen },
-},
-  {
-    initialRouteName: 'Home',
-    transitionConfig: (nav) => handleCustomTransition(nav),
-  });
-
-const App = createAppContainer(MainNavigator);
-
-
-export default App
-
-
+export default class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <AppNavigator />
+      </Provider>
+    );
+  }
+}
