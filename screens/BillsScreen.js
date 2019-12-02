@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { View, StyleSheet, Text } from 'react-native'
 import { useNavigation } from 'react-navigation-hooks';
 
@@ -8,9 +9,9 @@ import Counter from '../components/Counter';
 import SliderModal from '../screens/SliderModal';
 
 
-function BillsScreen() {
+function BillsScreen(props) {
   const { navigate } = useNavigation()
-  const mockData = require('../test/data/bills_screen_mock_data')
+  const mockData = props.bills
   const [billTotal, setBillTotal] = useState(0)
   const [itemDetail, setItemDetail] = useState({})
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -95,4 +96,15 @@ const styles = StyleSheet.create({
   }
 });
 
-export default BillsScreen
+function mapDispatchToProps(dispatch) {
+	return {
+		dispatch
+	};
+}
+
+function mapStateToProps(state) {
+  const user = state.get('user');
+	return { bills: user.bills };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BillsScreen);

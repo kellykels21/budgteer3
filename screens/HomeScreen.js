@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { connect } from 'react-redux';
 import { View, StyleSheet } from "react-native";
 import { useNavigation } from "react-navigation-hooks";
 import { LinearGradient } from "expo-linear-gradient";
@@ -13,9 +14,9 @@ import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
 const MAX_VALUE = 1400;
 
-function HomeScreen() {
+function HomeScreen(props) {
   const { navigate } = useNavigation();
-  const categories = require("../test/data/card_categories_mock_data");
+  const categories = props.cards;
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [itemDetail, setItemDetail] = useState({});
 
@@ -96,4 +97,15 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomeScreen;
+function mapDispatchToProps(dispatch) {
+	return {
+		dispatch
+	};
+}
+
+function mapStateToProps(state) {
+  const user = state.get('user');
+	return { cards: user.cards };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

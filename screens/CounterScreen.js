@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { View, StyleSheet, Text } from 'react-native'
 import { useNavigation } from 'react-navigation-hooks';
 
@@ -7,10 +8,10 @@ import Lister from '../components/Lister';
 
 import Counter from '../components/Counter';
 
-function CounterScreen() {
+function CounterScreen(props) {
   const { navigate } = useNavigation()
   const [transactionTotal, setTransactionTotal] = useState(0)
-  const mockData = require('../test/data/counter_screen_mock_data')
+  const mockData = props.counters
 
   useEffect(() => {
     getTransactionListTotal(mockData.data, setTransactionTotal)
@@ -81,4 +82,15 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CounterScreen
+function mapDispatchToProps(dispatch) {
+	return {
+		dispatch
+	};
+}
+
+function mapStateToProps(state) {
+  const user = state.get('user');
+	return { counters: user.counters };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CounterScreen);

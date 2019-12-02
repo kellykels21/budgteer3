@@ -1,7 +1,9 @@
 import bills from "./bills";
-import transactions from "./transactions";
+import counters from "./counters";
+import cards from "./cards";
 
 export default Types = {
   ...bills,
-  ...transactions
+  ...counters,
+  ...cards,
 };
