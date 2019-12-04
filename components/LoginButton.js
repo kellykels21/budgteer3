@@ -3,9 +3,12 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-const LoginButton = ({width, iconName, text}) => {
+const LoginButton = ({width, iconName, text, onPress}) => {
   return (
-    <TouchableOpacity style={[styles.button, styles.horizontalContainer, {width: width || '100%'}]}>
+    <TouchableOpacity
+      style={[styles.button, styles.horizontalContainer, {width: width || '100%'}]}
+      onPress={onPress}
+    >
       {
         iconName
         ? <View style={[styles.horizontalContainer, {justifyContent: 'center', alignItems: "center"}]}>

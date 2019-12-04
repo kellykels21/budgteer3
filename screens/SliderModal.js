@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
   pageTitleText: {
     fontWeight: '700',
     fontSize: 36,
-    color: 'black'
+    color: 'black',
+    textAlign: "center",
   },
   textContainer: {
     alignItems: "center",
