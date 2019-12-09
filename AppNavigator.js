@@ -15,7 +15,7 @@ const MainNavigator = createStackNavigator(
     Counter: { screen: CounterScreen }
   },
   {
-    initialRouteName: "Login",
+    initialRouteName: "Bills",
     transitionConfig: nav => handleCustomTransition(nav)
   }
 );
